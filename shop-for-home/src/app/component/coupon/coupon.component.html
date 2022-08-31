@@ -1,0 +1,13 @@
+<div class="container-fluid coupon-container">
+    <mat-card *ngFor="let coupon of discountCoupons">     
+        <img mat-card-image src="assets/coupon.jpg" alt="">
+       <mat-card-content>
+        <h4><span>PROMO CODE: </span>{{coupon.couponName}}</h4>
+        <h4 *ngIf="role == 'ROLE_ADMIN'" style="color: rgb(170, 29, 170); text-transform: uppercase;"><span>USER: </span>{{coupon.username}}</h4>
+        <div class="d-flex justify-content-between">
+            <h4 >GET {{coupon.value}} % OFF</h4>
+            <button *ngIf="role == 'ROLE_ADMIN'" mat-icon-button (click)="deleteCoupon(coupon.id)"><mat-icon color="warn">delete</mat-icon></button>
+        </div>
+       </mat-card-content>
+    </mat-card>
+</div>

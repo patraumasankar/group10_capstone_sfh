@@ -1,0 +1,80 @@
+h4 {
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 40px 0;
+  }
+  
+  .mat-card {
+    width: 22%;
+    margin-bottom: 25px;
+  }
+  
+  .mat-card img {
+    height: 250px;
+    border-radius: 5px;
+    border-bottom: 2px solid black;
+  }
+  
+  .mat-card:hover {
+    transform: scale(1.05);
+    }
+  
+  .mat-card-content{
+    margin-bottom: 0px;
+  }
+  
+  .star-icon{
+    font-size: 12px;
+    height: 20px;
+    width: 15px;
+    line-height: inherit;
+  }
+  
+  @media (max-width: 767px) {
+    .mat-card {
+      width: 90vw;
+    }
+  
+  }
+
+  .item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    border: 1px solid black;
+}
+
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
+
+.item a:hover {
+    color: blue;
+}
+
+.item img:hover {
+  transform: scale(1.02);
+}
+
+.wishlist-color{
+  color: rgb(242, 35, 104) !important;
+}
+
+.page-active{
+  background-color: blue;
+  color: rgb(193, 173, 212) !important;
+  font-weight: 700;
+  outline: none;
+}
+
+.page-item{
+  outline: none;
+}

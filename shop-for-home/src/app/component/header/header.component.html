@@ -1,0 +1,61 @@
+<div class="header">
+    <header >
+      <nav >
+        <div class="navbar-brand align-item-centre d-flex">
+          <img src="../../../assets/ShopForHome.png" routerLink="/home/1" height="60px" style="margin-top: 4px;"/>
+    
+         <span style="font-size: 36px;font-weight:500; color:'#F44336';" class="mt-4 ms-3">Ekart</span>
+    
+    
+        <span class="spacer"></span>
+        <ng-container *ngIf="isloggedIn; else loginButton">
+            <button mat-mini-fab color="warn" routerLink="coupon" style="margin:1px ;width: 50px; height: 50px; margin-right: 20px;margin-top: 10px;">
+                <mat-icon style="color :white">card_giftcard</mat-icon>
+              </button>
+          
+              <button *ngIf="role == 'ROLE_USER'" mat-mini-fab color="warn" routerLink="wishlist" style="margin:1px ;width: 50px; height: 50px;margin-right: 20px;margin-top: 10px;">
+                <mat-icon style="color :white">favorite</mat-icon>
+              </button>
+          
+              <button *ngIf="role == 'ROLE_USER'" mat-mini-fab color="warn" routerLink="cart" style="margin:1px ;width: 50px; height: 50px; margin-right: 15px;margin-top: 10px;">
+                <mat-icon style="color :white">shopping_cart</mat-icon>
+              </button>
+              <mat-card >
+                <img style="width: 50px; height: 50px;" mat-card-avatar [src]="'assets/user.png'" [matMenuTriggerFor]="userMenu" />
+            </mat-card>
+        </ng-container>
+        
+        <ng-template #loginButton>
+            <button style="height: 40px; margin-top:15px" mat-raised-button routerLink="/login" color="accent" class="me-3">
+                Login
+            </button>
+            <button style="height: 40px; margin-top:15px" mat-raised-button routerLink="/signup" color="accent">
+                Register
+            </button>
+        </ng-template>
+    
+      </div>
+      </nav>
+    </header>
+    </div>
+
+    <mat-menu #userMenu="matMenu">
+        <div class="container">
+            <h3>{{user.firstName}} {{user.lastName}}</h3>
+            <h3>{{user.email}}</h3>
+        </div>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/order">
+            <mat-icon>store</mat-icon>
+            Order
+        </button>
+        <button *ngIf="role == 'ROLE_ADMIN'" mat-menu-item routerLink="/dashboard">
+          <mat-icon>dashboard</mat-icon>
+          Dashboard
+      </button>
+        <button mat-menu-item routerLink="/login" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+    </mat-menu>
+    

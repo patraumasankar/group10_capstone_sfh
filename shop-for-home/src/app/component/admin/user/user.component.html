@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>Add User details</h2>
+<div mat-dialog-content>
+    <form [formGroup]="signUpForm">
+        <div class="row mt-3">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label aria-label>Enter your first name</mat-label>
+                    <input type="text" matInput formControlName="firstName">
+                    <mat-error *ngIf="signUpForm.controls['firstName'].hasError('required')">
+                        Firstname is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label aria-label>Enter your last name</mat-label>
+                    <input type="text" matInput formControlName="lastName">
+                    <mat-error *ngIf="signUpForm.controls['lastName'].hasError('required')">
+                        Lastname is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label aria-label>Enter your email</mat-label>
+                    <input type="email" matInput placeholder="abc@example.com" formControlName="email" required>
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="signUpForm.controls['email'].hasError('email')">
+                        Please enter a <strong>valid email address</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label aria-label>Enter your phone number</mat-label>
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input #phonenum type="tel" matInput maxlength="10" placeholder="9078356271" formControlName="phone">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-hint>{{phonenum.value.length}} / 10</mat-hint>
+                    <mat-error *ngIf="signUpForm.controls['phone'].hasError('required')">
+                        Phone number is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label aria-label>Enter your username</mat-label>
+                    <input type="text" matInput formControlName="username">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="signUpForm.controls['username'].hasError('required')">
+                        Username is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" />
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>             
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="primary" class="me-3" (click)="addUser()">{{actionBtn}}</button>
+    <button mat-raised-button mat-dialog-close color="warn" >cancel</button>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="my-4 text-center">WELCOME TO DASHBOARD</h1>
+    <div class="container d-flex justify-content-between mb-5">
+        <button mat-raised-button color="primary" (click)="toggleUser()">User Details</button>
+        <button mat-raised-button color="primary" (click)="toggleProduct()">Product Details</button>
+        <button mat-raised-button color="primary" (click)="toggleCSV()">Add Multiple products</button>
+        <button mat-raised-button color="primary" (click)="toggleCoupon()">Create Coupon</button>
+    </div>
+    <mat-card class="mb-4" *ngIf="userview">
+        <app-user-details></app-user-details>
+    </mat-card>
+
+    <mat-card *ngIf="productview">
+        <app-product-details></app-product-details>
+    </mat-card>
+
+    <mat-card class="container my-4" *ngIf="csvview" style="width: 60%;">
+        <div class="container ">
+            <h1 class="text-center mb-3">Add Multiple Products</h1>
+            <div class="row d-flex justify-content-center">
+                <div class="col-9">
+                    <input class="form-control form-control-lg" id="formFileLg" type="file"
+                        (change)="selectFile($event)">
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary" (click)="uploadFile()"
+                        style="width: 120px; height:47px">Upload</button>
+
+                </div>
+            </div>
+        </div>
+    </mat-card>
+
+    <mat-card class="container my-4" *ngIf="couponview" style="width: 60%;">
+        <h1 class="text-center">Add Coupon</h1>
+        <app-discount-coupon></app-discount-coupon>
+    </mat-card>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="container mt-3 text-center" style="width: 50%;">
+    <form [formGroup]="couponForm">
+        <mat-form-field appearance="outline">
+            <mat-label aria-label>Enter coupon name</mat-label>
+            <input type="text" matInput formControlName="couponName">
+            <mat-error *ngIf="couponForm.controls['couponName'].hasError('required')">
+                coupon name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label aria-label>Enter coupon value</mat-label>
+            <input type="text" matInput formControlName="value">
+            <mat-error *ngIf="couponForm.controls['value'].hasError('required')">
+                value is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Enter username</mat-label>
+            <mat-select formControlName="username" multiple>
+              <mat-option *ngFor="let user of users" [value]="user.username">
+                {{user.username}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="couponForm.controls['username'].hasError('required')">
+                username is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent" class="mt-3 btn-center" (click)="createCoupon();">
+            Add Coupon
+        </button>
+    </form>
+</div>

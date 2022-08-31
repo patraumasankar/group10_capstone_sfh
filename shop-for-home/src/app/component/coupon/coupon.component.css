@@ -1,0 +1,22 @@
+.coupon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.mat-card {
+    width: 20%;
+    margin: 10px;
+    margin-bottom: 25px;
+}
+
+.mat-card img {
+    height: 250px;
+    border-radius: 5px;
+    border-bottom: 2px solid black;
+}
+
+.mat-card:hover {
+    transform: scale(1.05);
+}

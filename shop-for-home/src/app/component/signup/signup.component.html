@@ -1,0 +1,114 @@
+
+<section style="background-color: #9A616D;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="assets/home.jpg"
+                  alt="login form" class="h-100 img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <div class="text-center my-3">
+  
+                    <span class="h1 fw-bold " style="color: #ff6219;" >SHOP FOR HOME </span>
+                  </div>
+                  <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label aria-label>Enter your first name</mat-label>
+                                <input type="text" matInput formControlName="firstName">
+                                <mat-error *ngIf="signUpForm.controls['firstName'].hasError('required')">
+                                    Firstname is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label aria-label>Enter your last name</mat-label>
+                                <input type="text" matInput formControlName="lastName">
+                                <mat-error *ngIf="signUpForm.controls['lastName'].hasError('required')">
+                                    Lastname is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <mat-form-field appearance="outline">
+                        <mat-label aria-label>Enter your email</mat-label>
+                        <input type="email" matInput placeholder="abc@example.com" formControlName="email" required>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="signUpForm.controls['email'].hasError('email')">
+                            Please enter a <strong>valid email address</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label aria-label>Enter your phone number</mat-label>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <input #phonenum type="tel" matInput maxlength="10" placeholder="9078356271" formControlName="phone">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-hint>{{phonenum.value.length}} / 10</mat-hint>
+                        <mat-error *ngIf="signUpForm.controls['phone'].hasError('required')">
+                            Phone number is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label aria-label>Enter your username</mat-label>
+                        <input type="text" matInput formControlName="username">
+                        <mat-icon matSuffix>person</mat-icon>
+                        <mat-error *ngIf="signUpForm.controls['username'].hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" />
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+            
+                    <div class="d-flex justify-content-center mt-1">
+                        <button type="submit" mat-raised-button color="primary">Register</button>
+                    </div>
+                    <p class="my-3 pb-lg-2" style="color: #393f81;">Already have an account? <a href="#!"
+                        style="color: #393f81;" routerLink="/login"> Login here</a></p>
+                    <a href="#!" class="small text-muted">Terms of use.</a>
+                    <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
